@@ -713,8 +713,10 @@ fill_buffer(lame_internal_flags * gfc,
 void
 lame_report_def(const char *format, va_list args)
 {
+#ifndef NO_STDIO
     (void) vfprintf(stderr, format, args);
     fflush(stderr); /* an debug function should flush immediately */
+#endif
 }
 
 void 
